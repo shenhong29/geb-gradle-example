@@ -7,6 +7,8 @@ class GoogleSearchGebSpec extends GebReportingSpec {
         given:
         go "http://www.google.com"
 
+        slowDownForPresentation()
+
         when:
         $("input", name: "q").value("Geb")
         $("button", name: "btnG").click()
@@ -19,13 +21,15 @@ class GoogleSearchGebSpec extends GebReportingSpec {
         when:
         $("h3.r").first().click()
 
-        slowDown()
+        slowDownForPresentation()
 
         then:
         waitFor { title == "Geb - Very Groovy Browser Automation" }
     }
 
-    private void slowDown() {
-        Thread.sleep(1000)
+    private void slowDownForPresentation(long time = 2000) {
+        if (System.getProperty('slow')) {
+            Thread.sleep(time)
+        }
     }
 }
