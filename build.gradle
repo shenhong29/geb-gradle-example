@@ -20,6 +20,13 @@ dependencies {
 
 
     testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+    testCompile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+
+    // For downloading browser-specific drivers that browsers like Chrome and IE require
+    // From https://github.com/bonigarcia/webdrivermanager
+    testCompile("io.github.bonigarcia:webdrivermanager:1.4.9") {
+        exclude group: 'org.seleniumhq.selenium'
+    }
 }
 
 // Always run the functional tests
