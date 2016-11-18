@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.ChromeDriverManager
+import io.github.bonigarcia.wdm.FirefoxDriverManager
 import org.openqa.selenium.Dimension
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
@@ -7,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver
 reportsDir = 'build/test-reports'
 
 driver = {
+    FirefoxDriverManager.instance.setup()
   def theDriver = new FirefoxDriver()
   theDriver.manage().window().setSize(new Dimension(1366, 768))
 

@@ -1,7 +1,7 @@
 ext {
     groovyVersion = '2.4.5'
     gebVersion = '1.0'
-    seleniumVersion = '2.53.1'
+    seleniumVersion = '3.0.1'
 }
 
 apply plugin: "groovy"
@@ -24,7 +24,7 @@ dependencies {
 
     // For downloading browser-specific drivers that browsers like Chrome and IE require
     // From https://github.com/bonigarcia/webdrivermanager
-    testCompile("io.github.bonigarcia:webdrivermanager:1.4.9") {
+    testCompile("io.github.bonigarcia:webdrivermanager:1.5.0") {
         exclude group: 'org.seleniumhq.selenium'
     }
 }
