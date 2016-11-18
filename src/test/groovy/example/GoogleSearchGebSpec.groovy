@@ -19,7 +19,7 @@ class GoogleSearchGebSpec extends GebReportingSpec {
         assert $("#search").text().contains("gebish.org")
 
         when:
-        $("h3.r").first().click()
+        $("h3.r").find(text: 'Geb - Very Groovy Browser Automation').click()
 
         slowDownForPresentation()
 
