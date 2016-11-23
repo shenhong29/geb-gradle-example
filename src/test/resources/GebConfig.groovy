@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver
 reportsDir = 'build/test-reports'
 
 driver = {
-    FirefoxDriverManager.instance.setup()
+  FirefoxDriverManager.instance.setup()
   def theDriver = new FirefoxDriver()
   theDriver.manage().window().setSize(new Dimension(1366, 768))
 

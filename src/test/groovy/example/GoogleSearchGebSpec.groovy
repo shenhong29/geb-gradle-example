@@ -10,7 +10,7 @@ class GoogleSearchGebSpec extends GebReportingSpec {
         slowDownForPresentation()
 
         when:
-        $("input", name: "q").value("Geb")
+        $("input", name: "q").value("Geb browser testing")
         $("button", name: "btnG").click()
 
         then:
