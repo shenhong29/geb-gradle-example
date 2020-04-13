@@ -11,7 +11,7 @@ class GoogleSearchGebSpec extends GebReportingSpec {
 
         when:
         $("input", name: "q").value("Geb browser testing")
-        $("button", name: "btnG").click()
+        $("input", name: "btnK").lastElement().click()
 
         then:
         waitFor { $("#search").displayed }
@@ -19,7 +19,7 @@ class GoogleSearchGebSpec extends GebReportingSpec {
         assert $("#search").text().contains("gebish.org")
 
         when:
-        $("h3.r").find(text: 'Geb - Very Groovy Browser Automation').click()
+        $("h3", text: "Geb - Very Groovy Browser Automation").click()
 
         slowDownForPresentation()
 

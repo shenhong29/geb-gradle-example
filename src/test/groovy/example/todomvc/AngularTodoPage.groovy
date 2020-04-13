@@ -9,7 +9,7 @@ class AngularTodoPage extends Page {
     static at = { title.contains('Angular') }
 
     static content = {
-        newToDoField { $("#new-todo") }
+        newToDoField { $("input[ng-model='newTodo']") }
         removeTodoLink(required: false) { $(".destroy") }
         toDoItems(required: false) { $(".view").find('label') }
     }
