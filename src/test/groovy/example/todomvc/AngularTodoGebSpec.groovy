@@ -1,8 +1,14 @@
 package example.todomvc
 
 import geb.spock.GebReportingSpec
+import org.junit.Rule
+import org.junit.rules.TestName
 
 class AngularTodoGebSpec extends GebReportingSpec {
+
+    @Rule
+    public TestName testName = new TestName();
+
     def 'should be able to add and remove a to-do item'() {
         given:
         AngularTodoPage todoPage = to(AngularTodoPage)

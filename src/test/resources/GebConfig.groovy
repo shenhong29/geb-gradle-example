@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.ChromeDriverManager
+import io.github.bonigarcia.wdm.DriverManagerType
 import io.github.bonigarcia.wdm.FirefoxDriverManager
 import org.openqa.selenium.Dimension
 import org.openqa.selenium.chrome.ChromeDriver
@@ -8,9 +9,10 @@ import org.openqa.selenium.firefox.FirefoxDriver
 reportsDir = 'build/test-reports'
 
 driver = {
-  FirefoxDriverManager.instance.setup()
+//  FirefoxDriverManager.instance.setup()
+  FirefoxDriverManager.getInstance(DriverManagerType.FIREFOX).setup()
   def theDriver = new FirefoxDriver()
-  theDriver.manage().window().setSize(new Dimension(1366, 768))
+  theDriver.manage().window().setSize(new Dimension(1920, 1080))
 
   return theDriver
 }
@@ -21,12 +23,12 @@ environments {
   // ChromeDriver reference: https://sites.google.com/a/chromium.org/chromedriver/
   chrome {
     // Download and configure ChromeDriver using https://github.com/bonigarcia/webdrivermanager
-    ChromeDriverManager.getInstance().setup()
+    ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup()
 
     driver = {
       def theDriver = new ChromeDriver()
 
-      theDriver.manage().window().setSize(new Dimension(1366, 768))
+      theDriver.manage().window().setSize(new Dimension(1920, 1080))
 
       return theDriver
     }

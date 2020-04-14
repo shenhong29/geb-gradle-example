@@ -1,8 +1,14 @@
 package example
 
 import geb.spock.GebReportingSpec
+import org.junit.Rule
+import org.junit.rules.TestName
 
 class GoogleSearchGebSpec extends GebReportingSpec {
+
+    @Rule
+    public TestName testName = new TestName();
+
     def 'should search for Geb in Google'() {
         given:
         go "http://www.google.com"

@@ -1,5 +1,5 @@
 ext {
-    groovyVersion = '2.4.19'
+    groovyVersion = '3.0.3'
     gebVersion = '3.4'
     seleniumVersion = '3.141.59'
 }
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.spockframework:spock-core:1.0-groovy-2.4") {
+    testImplementation("org.spockframework:spock-core:2.0-M2-groovy-3.0") {
         exclude group: "org.codehaus.groovy"
     }
     testImplementation "org.codehaus.groovy:groovy-all:$groovyVersion"
@@ -24,13 +24,14 @@ dependencies {
 
     // For downloading browser-specific drivers that browsers like Chrome and IE require
     // From https://github.com/bonigarcia/webdrivermanager
-    testImplementation("io.github.bonigarcia:webdrivermanager:2.2.5") {
+    testImplementation("io.github.bonigarcia:webdrivermanager:3.8.1") {
         exclude group: 'org.seleniumhq.selenium'
     }
 }
 
 test {
-    useJUnit()
+//    useJUnit()
+    useJUnitPlatform()
 }
 
 // Always run the functional tests
