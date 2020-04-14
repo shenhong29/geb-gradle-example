@@ -7,24 +7,35 @@ import org.junit.rules.TestName
 class AngularTodoGebSpec extends GebReportingSpec {
 
     @Rule
-    public TestName testName = new TestName();
+    TestName testName = new TestName();
+
+    def todo1 = 'My new item 1'
+    def todo2 = 'My new item 2'
+    def todo3 = 'My new item 3'
+
+    def toDoLIst = new ArrayList<>();
 
     def 'should be able to add and remove a to-do item'() {
         given:
         AngularTodoPage todoPage = to(AngularTodoPage)
 
         when:
-        todoPage.addToDo('My new item')
+        todoPage.addToDo(todo1)
+        toDoLIst.add(todo1);
+        todoPage.addToDo(todo2)
+        toDoLIst.add(todo2);
+        todoPage.addToDo(todo3)
+        toDoLIst.add(todo3);
 
         then:
-        waitFor { todoPage.numberOfToDoItems == 1 }
+        waitFor { todoPage.numberOfToDoItems == 3 }
 
-        assert todoPage.toDoItemTexts == ['My new item']
+        assert todoPage.toDoItemTexts == toDoLIst
 
         when:
         todoPage.removeFirstToDoItem()
 
         then:
-        waitFor { todoPage.numberOfToDoItems == 0 }
+        waitFor { todoPage.numberOfToDoItems == 2 }
     }
 }

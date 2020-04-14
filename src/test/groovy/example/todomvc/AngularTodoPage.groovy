@@ -36,8 +36,8 @@ class AngularTodoPage extends Page {
             moveToElement(firstToDoItem)
         }
 
-        waitFor { removeTodoLink.displayed }
-
-        removeTodoLink.click()
+        def firstRemoveTodoLink = removeTodoLink.first()
+        waitFor { firstRemoveTodoLink.displayed }
+        firstRemoveTodoLink.click()
     }
 }
