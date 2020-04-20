@@ -1,8 +1,9 @@
-package example.todomvc
+package specs
 
 import geb.spock.GebReportingSpec
 import org.junit.Rule
 import org.junit.rules.TestName
+import pages.AngularTodoPage
 
 class AngularTodoGebSpec extends GebReportingSpec {
 

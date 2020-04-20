@@ -1,8 +1,9 @@
-package example
+package specs
 
 import geb.spock.GebReportingSpec
 import org.junit.Rule
 import org.junit.rules.TestName
+import pages.GoogleHomePage
 
 class GoogleSearchGebSpec extends GebReportingSpec {
 
@@ -11,26 +12,26 @@ class GoogleSearchGebSpec extends GebReportingSpec {
 
     def 'should search for Geb in Google'() {
         given:
-        go "http://www.google.com"
+//        go "http://www.google.com"
+        GoogleHomePage googleHomePage = to(GoogleHomePage)
 
         slowDownForPresentation()
 
         when:
-        $("input", name: "q").value("Geb browser testing")
-        $("input", name: "btnK").lastElement().click()
+        googleHomePage.searchFor("Geb browser testing")
 
         then:
-        waitFor { $("#search").displayed }
-
-        assert $("#search").text().contains("gebish.org")
+        def results = googleHomePage.getSearchResults();
+        assert results.contains("gebish.org")
 
         when:
-        $("h3", text: "Geb - Very Groovy Browser Automation").click()
 
+        googleHomePage.goToSearchResultItem("Geb - Very Groovy Browser Automation")
         slowDownForPresentation()
 
         then:
-        waitFor { title == "Geb - Very Groovy Browser Automation" }
+        googleHomePage.waitForSearchLandingPageTitle("Geb - Very Groovy Browser Automation")
+
     }
 
     private void slowDownForPresentation(long time = 2000) {

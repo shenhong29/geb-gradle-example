@@ -1,4 +1,4 @@
-package example.todomvc
+package pages
 
 import geb.Page
 import org.openqa.selenium.Keys
