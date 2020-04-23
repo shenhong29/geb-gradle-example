@@ -14,20 +14,20 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.spockframework:spock-core:$spockVersion") {
+    implementation("org.spockframework:spock-core:$spockVersion") {
         exclude group: "org.codehaus.groovy"
     }
-    testImplementation "org.codehaus.groovy:groovy-all:$groovyVersion"
+    implementation "org.codehaus.groovy:groovy-all:$groovyVersion"
 
-    testImplementation "org.gebish:geb-spock:$gebVersion"
+    implementation "org.gebish:geb-spock:$gebVersion"
 
 
-    testImplementation "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
-    testImplementation "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+    implementation "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+    implementation "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
 
     // For downloading browser-specific drivers that browsers like Chrome and IE require
     // From https://github.com/bonigarcia/webdrivermanager
-    testImplementation("io.github.bonigarcia:webdrivermanager:$wdmVersion") {
+    implementation("io.github.bonigarcia:webdrivermanager:$wdmVersion") {
         exclude group: 'org.seleniumhq.selenium'
     }
 }

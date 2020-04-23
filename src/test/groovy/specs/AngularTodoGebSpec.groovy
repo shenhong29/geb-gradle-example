@@ -16,7 +16,7 @@ class AngularTodoGebSpec extends GebReportingSpec {
 
     def toDoLIst = new ArrayList<>();
 
-    def 'should be able to add and remove a to-do item'() {
+    def 'should be able to add 3 to-do items and remove 1 to-do_item'() {
         given:
         AngularTodoPage todoPage = to(AngularTodoPage)
 
@@ -39,4 +39,5 @@ class AngularTodoGebSpec extends GebReportingSpec {
         then:
         waitFor { todoPage.numberOfToDoItems == 2 }
     }
+
 }
